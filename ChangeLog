@@ -1,51 +1,66 @@
+2003-06-19 14:05  tag PDL_IO_HDF5_0_3
+
+2003-06-19 14:05  cerney
+
+	* hdf5.pd: Preparation for next release.
+
+2003-01-29 10:15  cerney
+
+	* hdf5.pd, t/ztotal_index.t: Changed index text for attributes not
+	defined from '' to '_undef_'.
+
+2003-01-29 09:48  cerney
+
+	* hdf5.pd, t/ztotal_index.t: Modified BuildGroupIndex to build the
+	index for all groups, even if some of the groups don't have all the
+	attributes defined.
+
+2002-09-17 12:46  tag DL_IO_HDF5_0_2
+
 2002-09-17 12:46  cerney
 
-	* README, hdf5.pd (utags: DL_IO_HDF5_0_2): Preparation for next
-	release.
+	* README, hdf5.pd: Preparation for next release.
 
 2002-08-07 09:29  cerney
 
-	* tkviewtest (tags: DL_IO_HDF5_0_2): Modified to not try to calc
-	the number of elements for 0-d datasets
+	* tkviewtest: Modified to not try to calc the number of elements
+	for 0-d datasets
 
 2002-08-07 09:25  cerney
 
-	* HDF5/tkview.pm (tags: DL_IO_HDF5_0_2): Modified to properly
-	display 0-dim datasets
+	* HDF5/tkview.pm: Modified to properly display 0-dim datasets
 
 2002-08-05 15:23  cerney
 
 	* hdf5.pd: Fixed bug in calling of _buildGruopIndex.
 
+2001-07-10 09:30  tag PDL_IO_HDF5_0_1
+
 2001-07-10 09:30  cerney
 
-	* COPYRIGHT (tags: DL_IO_HDF5_0_2, PDL_IO_HDF5_0_1): Added
-	copyright file.
+	* COPYRIGHT: Added copyright file.
 
 2001-06-11 16:27  cerney
 
-	* Makefile.PL (tags: DL_IO_HDF5_0_2), README, hdf5.pd, tkviewtest,
-	HDF5/Dataset.pm (tags: DL_IO_HDF5_0_2), HDF5/Group.pm (tags:
-	DL_IO_HDF5_0_2), HDF5/tkview.pm, t/file.t (tags: DL_IO_HDF5_0_2),
-	t/group.t (tags: DL_IO_HDF5_0_2), t/total.t (tags: DL_IO_HDF5_0_2),
-	t/ztotal_index.t (tags: DL_IO_HDF5_0_2) (utags: PDL_IO_HDF5_0_1):
-	Changed the name from PDL::HDF5 to PDL::IO::HDF5 to be consistent
-	with other PDL IO interfaces.
+	* Makefile.PL, README, hdf5.pd, tkviewtest, HDF5/Dataset.pm,
+	HDF5/Group.pm, HDF5/tkview.pm, t/file.t, t/group.t, t/total.t,
+	t/ztotal_index.t: Changed the name from PDL::HDF5 to PDL::IO::HDF5
+	to be consistent with other PDL IO interfaces.
+
+2001-04-07 21:40  tag PDL-HDF5_0_1
 
 2001-04-07 21:40  cerney
 
-	* t/: total_index.t, ztotal_index.t (tags: PDL-HDF5_0_1): Renamed
-	total_index.t to ztotal_index.t to ensure that this test is run
-	after total.t creates the hdf5 file.
+	* t/: total_index.t, ztotal_index.t: Renamed total_index.t to
+	ztotal_index.t to ensure that this test is run after total.t
+	creates the hdf5 file.
 
 2001-04-07 21:25  cerney
 
-	* hdf5.pd (tags: PDL-HDF5_0_1), tkviewtest (tags: PDL-HDF5_0_1),
-	HDF5/Dataset.pm (tags: PDL-HDF5_0_1), HDF5/Group.pm (tags:
-	PDL-HDF5_0_1), HDF5/tkview.pm (tags: PDL-HDF5_0_1), t/group.t
-	(tags: PDL-HDF5_0_1), t/total_index.t: Fixed to work with perl 5.6.
-	Fixed problem with objects getting destroyed before they should.
-	Made member data between the helper objects more consistent
+	* hdf5.pd, tkviewtest, HDF5/Dataset.pm, HDF5/Group.pm,
+	HDF5/tkview.pm, t/group.t, t/total_index.t: Fixed to work with perl
+	5.6. Fixed problem with objects getting destroyed before they
+	should. Made member data between the helper objects more consistent
 
 2001-04-06 22:35  cerney
 
@@ -59,13 +74,11 @@
 
 2001-04-06 16:29  cerney
 
-	* Makefile.PL (tags: PDL-HDF5_0_1): Added -lm to libs (Seems to be
-	needed sometimes)
+	* Makefile.PL: Added -lm to libs (Seems to be needed sometimes)
 
 2001-04-06 12:43  cerney
 
-	* typemap (tags: DL_IO_HDF5_0_2, PDL_IO_HDF5_0_1, PDL-HDF5_0_1):
-	Modified to compile with perl5.6
+	* typemap: Modified to compile with perl5.6
 
 2000-06-08 15:13  cerney
 
@@ -114,7 +127,7 @@
 
 2000-06-02 09:13  cerney
 
-	* t/total.t (tags: PDL-HDF5_0_1):  Updated comments
+	* t/total.t:  Updated comments
 
 2000-04-22 22:09  cerney
 
@@ -129,8 +142,7 @@
 
 2000-04-19 07:00  cerney
 
-	* README (tags: PDL-HDF5_0_1), hdf5.pd: Added readme, updated
-	version.
+	* README, hdf5.pd: Added readme, updated version.
 
 2000-04-18 16:27  cerney
 
@@ -280,8 +292,8 @@
 
 2000-03-10 16:13  cerney
 
-	* HDF5.pd, Makefile.PL, hdf5.pd, typemap, t/file.t (tags:
-	PDL-HDF5_0_1): Create Initial main PDL::HDF5 object.
+	* HDF5.pd, Makefile.PL, hdf5.pd, typemap, t/file.t: Create Initial
+	main PDL::HDF5 object.
 
 2000-03-10 13:03  cerney
 
