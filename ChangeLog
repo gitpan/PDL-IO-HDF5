@@ -1,0 +1,293 @@
+2002-09-17 12:46  cerney
+
+	* README, hdf5.pd (utags: DL_IO_HDF5_0_2): Preparation for next
+	release.
+
+2002-08-07 09:29  cerney
+
+	* tkviewtest (tags: DL_IO_HDF5_0_2): Modified to not try to calc
+	the number of elements for 0-d datasets
+
+2002-08-07 09:25  cerney
+
+	* HDF5/tkview.pm (tags: DL_IO_HDF5_0_2): Modified to properly
+	display 0-dim datasets
+
+2002-08-05 15:23  cerney
+
+	* hdf5.pd: Fixed bug in calling of _buildGruopIndex.
+
+2001-07-10 09:30  cerney
+
+	* COPYRIGHT (tags: DL_IO_HDF5_0_2, PDL_IO_HDF5_0_1): Added
+	copyright file.
+
+2001-06-11 16:27  cerney
+
+	* Makefile.PL (tags: DL_IO_HDF5_0_2), README, hdf5.pd, tkviewtest,
+	HDF5/Dataset.pm (tags: DL_IO_HDF5_0_2), HDF5/Group.pm (tags:
+	DL_IO_HDF5_0_2), HDF5/tkview.pm, t/file.t (tags: DL_IO_HDF5_0_2),
+	t/group.t (tags: DL_IO_HDF5_0_2), t/total.t (tags: DL_IO_HDF5_0_2),
+	t/ztotal_index.t (tags: DL_IO_HDF5_0_2) (utags: PDL_IO_HDF5_0_1):
+	Changed the name from PDL::HDF5 to PDL::IO::HDF5 to be consistent
+	with other PDL IO interfaces.
+
+2001-04-07 21:40  cerney
+
+	* t/: total_index.t, ztotal_index.t (tags: PDL-HDF5_0_1): Renamed
+	total_index.t to ztotal_index.t to ensure that this test is run
+	after total.t creates the hdf5 file.
+
+2001-04-07 21:25  cerney
+
+	* hdf5.pd (tags: PDL-HDF5_0_1), tkviewtest (tags: PDL-HDF5_0_1),
+	HDF5/Dataset.pm (tags: PDL-HDF5_0_1), HDF5/Group.pm (tags:
+	PDL-HDF5_0_1), HDF5/tkview.pm (tags: PDL-HDF5_0_1), t/group.t
+	(tags: PDL-HDF5_0_1), t/total_index.t: Fixed to work with perl 5.6.
+	Fixed problem with objects getting destroyed before they should.
+	Made member data between the helper objects more consistent
+
+2001-04-06 22:35  cerney
+
+	* HDF5/: Dataset.pm, Group.pm: Fixed calling of close functions in
+	the object DESTROYS. This creates problems elsewhere, not fixed
+	yet.
+
+2001-04-06 16:30  cerney
+
+	* hdf5.pd, t/total_index.t: Modified syntax to work with perl 5.6
+
+2001-04-06 16:29  cerney
+
+	* Makefile.PL (tags: PDL-HDF5_0_1): Added -lm to libs (Seems to be
+	needed sometimes)
+
+2001-04-06 12:43  cerney
+
+	* typemap (tags: DL_IO_HDF5_0_2, PDL_IO_HDF5_0_1, PDL-HDF5_0_1):
+	Modified to compile with perl5.6
+
+2000-06-08 15:13  cerney
+
+	* hdf5.pd: Updated the allAttrValues method to only get attr values
+	in groups that have all the requested attributes. (used to be any
+	instead of all)
+
+2000-06-05 07:42  cerney
+
+	* hdf5.pd, t/total_index.t: Added getGroupsByAttr method.
+
+2000-06-04 10:18  cerney
+
+	* hdf5.pd, t/total_index.t: Added groupIndex data member and
+	method.
+
+2000-06-02 16:20  cerney
+
+	* hdf5.pd, t/total_index.t: Added allAttrNames method
+
+2000-06-02 16:07  cerney
+
+	* hdf5.pd, HDF5/Dataset.pm, HDF5/Group.pm, t/group.t,
+	t/total_index.t: Updated to clear the attrIndex data member when
+	changes are made to the file.
+
+2000-06-02 15:31  cerney
+
+	* hdf5.pd: POD doco fix
+
+2000-06-02 15:26  cerney
+
+	* hdf5.pd, t/total_index.t: Added allAttrValues method
+
+2000-06-02 15:05  cerney
+
+	* hdf5.pd, HDF5/Group.pm, t/total_index.t: Changed the way groups
+	are indexed by their attributes so that attributes at top level
+	apply to lower-level groups. This is consistent with the hierarchy
+	of HDF5 files.
+
+2000-06-02 11:10  cerney
+
+	* hdf5.pd, HDF5/Group.pm, t/total_index.t: Added attribute index
+	method.
+
+2000-06-02 09:13  cerney
+
+	* t/total.t (tags: PDL-HDF5_0_1):  Updated comments
+
+2000-04-22 22:09  cerney
+
+	* hdf5.pd, HDF5/Dataset.pm, t/total.t: - Modified to properly
+	return the type that is stored in the file. (i.e. a 32-bit IEEE in
+	the file should be returne as a PDL float, etc).  - Added test case
+	for proper type being returned.
+
+2000-04-21 21:15  cerney
+
+	* tkviewtest: Updated to work with Tk800.018 on linux
+
+2000-04-19 07:00  cerney
+
+	* README (tags: PDL-HDF5_0_1), hdf5.pd: Added readme, updated
+	version.
+
+2000-04-18 16:27  cerney
+
+	* HDF5/tkview.pm: Modified tkview.pm to include action to perform
+	(configurable) if dataset is double-clicked.
+
+2000-04-13 10:00  cerney
+
+	* tkviewtest: Added Balloon popups
+
+2000-04-13 08:22  cerney
+
+	* hdf5.pd: Added some 'use's so that the package would work
+	stand-alone.
+
+2000-04-09 20:34  cerney
+
+	* HDF5/: Dataset.pm, Group.pm: Modified to create length 1 strings
+	storage for 0-length attributes.
+
+2000-04-04 10:45  cerney
+
+	* hdf5.pd, typemap, HDF5/Dataset.pm: Added support for PDL::Char
+	objects in Dataset::get.
+
+2000-04-04 09:36  cerney
+
+	* HDF5/Dataset.pm, t/total.t: Added support for PDL::Char objects
+	in Dataset::set.
+
+2000-04-02 21:24  cerney
+
+	* HDF5/tkview.pm: Changed order of viewing.
+
+2000-04-01 21:55  cerney
+
+	* tkviewtest, HDF5/tkview.pm: Added experimental HDF5 file viewer
+	using Tk.
+
+2000-04-01 11:33  cerney
+
+	* HDF5/Dataset.pm, t/total.t: Added attrGet method to dataset
+	object.
+
+2000-04-01 11:01  cerney
+
+	* t/total.t: Fixed typo
+
+2000-04-01 11:00  cerney
+
+	* Makefile.PL, hdf5.pd, typemap, HDF5/Dataset.pm, HDF5/Group.pm,
+	t/group.t, t/total.t: Added attrGet method to File and group
+	objects. (Still need to add to dataset)
+
+2000-03-31 14:09  cerney
+
+	* hdf5.pd, HDF5/Dataset.pm, t/total.t: Added dims method to dataset
+
+2000-03-24 15:19  cerney
+
+	* hdf5.pd, HDF5/Dataset.pm, HDF5/Group.pm, t/group.t, t/total.t:
+	Finished adding top-level functionality
+
+2000-03-24 13:44  cerney
+
+	* hdf5.pd, HDF5/Group.pm, t/group.t, t/total.t: Modified group
+	object: Changed fileID/filename to parentID/parentName
+
+2000-03-23 13:52  cerney
+
+	* hdf5.pd, t/total.t: Added top-level attribute and group
+	functions.
+
+2000-03-23 08:58  cerney
+
+	* hdf5.pd: Baseline before changing to structure where group and
+	dataset inherits from file.
+
+2000-03-22 07:39  cerney
+
+	* hdf5.pd, HDF5/Dataset.pm, t/group.t: Cleaned-up Attr methods for
+	Datasets
+
+2000-03-21 07:53  cerney
+
+	* hdf5.pd, HDF5/Dataset.pm, t/group.t: Added Dataset->get method
+
+2000-03-21 07:52  cerney
+
+	* typemap: Modified the PVI typemap to deal with output of pointers
+	to data-structures. Previously was treating like character strings,
+	and data was getting cut-off at zeros (char null-termination bytes)
+	
+	Added I8 type. Used in most cases where HDF5 using void * for I/O
+	data.
+
+2000-03-19 20:38  cerney
+
+	* hdf5.pd: Doco fixes
+
+2000-03-17 13:52  cerney
+
+	* hdf5.pd, HDF5/Dataset.pm, t/group.t: Got the dataset set method
+	to work correctly.
+
+2000-03-16 16:10  cerney
+
+	* hdf5.pd: Added packlist utility function
+
+2000-03-16 16:09  cerney
+
+	* Makefile.PL, hdf5.pd, HDF5/Dataset.pm, t/group.t: Intermediate
+	Checkin while creating dataset helper object
+
+2000-03-16 12:33  cerney
+
+	* hdf5.pd, HDF5/Group.pm, t/group.t: Added groups method to the
+	group object
+
+2000-03-16 09:47  cerney
+
+	* hdf5.pd, HDF5/Group.pm, t/group.t: Added datasets method to
+	Groups object.
+
+2000-03-14 14:12  cerney
+
+	* hdf5.pd, HDF5/Group.pm, t/group.t: Added attrs method to group
+	object.
+
+2000-03-13 08:27  cerney
+
+	* HDF5.pd: Removed HDF5.pd; Never should have been configure.
+	(hdf5.pd is the correct file.)
+
+2000-03-12 17:59  cerney
+
+	* hdf5.pd, HDF5/Group.pm, t/group.t: Added group::attrDel method
+
+2000-03-12 17:31  cerney
+
+	* hdf5.pd, HDF5/Group.pm, t/group.t: Added group::attrset
+
+2000-03-12 11:18  cerney
+
+	* Makefile.PL, hdf5.pd, typemap, HDF5/Group.pm, t/group.t: Added
+	basic group functionality
+
+2000-03-10 16:13  cerney
+
+	* HDF5.pd, Makefile.PL, hdf5.pd, typemap, t/file.t (tags:
+	PDL-HDF5_0_1): Create Initial main PDL::HDF5 object.
+
+2000-03-10 13:03  cerney
+
+	* hdf5.pd: Initial Checkin
+
+2000-03-10 13:00  cerney
+
+	* Makefile.PL: Initial Checkin
+
