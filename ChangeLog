@@ -1,3 +1,21 @@
+2006-03-24 14:37  tag PDL_IO_HDF5_0_5
+
+2006-03-24 14:37  cerney
+
+	* COPYRIGHT, README, hdf5.pd: Preparation for next release.
+
+2006-01-10 12:57  A0182636
+
+	* HDF5/Dataset.pm: Updated to preallocate the data for an array
+	incrementally, rather than all at once. On win32 allocating all at
+	once causes perl to hang when reading large arrays (> 50Meg)
+
+2004-07-02 12:02  cerney
+
+	* HDF5/Dataset.pm: Fixed bug where Dataset $self variables weren't
+	declared lexical. This could cause the hdf5 objects to hang around
+	longer than they should.
+
 2003-06-19 14:05  tag PDL_IO_HDF5_0_3
 
 2003-06-19 14:05  cerney
