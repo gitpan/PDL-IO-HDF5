@@ -1,3 +1,47 @@
+2010-04-27 20:31  tag PDL_IO_HDF5_0_6
+
+2010-04-27 20:31  cerney
+
+	* README, hdf5.pd: Preparation for release of 0.6
+
+2010-04-27 20:29  cerney
+
+	* Makefile.PL: Updated Makefile.PL for better compatibility with
+	CPAN in its check for PDL installation and hdf5 libraries
+
+2010-04-27 18:25  cerney
+
+	* t/attribPDL.t: Test case for store/retreive attributes as PDLs.
+
+2010-04-27 18:24  cerney
+
+	* hdf5.pd, HDF5/Dataset.pm: Updated to include capability to
+	store/retreive attributes as PDLs. Thanks to a patch from Xavier
+	Calbet.
+
+2009-02-06 15:02  cerney
+
+	* HDF5/Dataset.pm, t/total.t: Updated so integer (PDL_Long) works
+	with 64-bit machines. Previously 64 bit machines would crash
+	retreiving 32-bit data, because it was mapped to NATIVE_LONG, which
+	the h5 library thinks is 64bit for 64bit machines.
+
+2007-03-12 07:56  cerney
+
+	* HDF5/Dataset.pm, t/total.t: Updated the dataset hyperslab
+	retreive interface to use the start/end coords instead of the
+	start/lengh coord. (From Xavier Calbet's updated patch)
+
+2007-03-07 07:54  cerney
+
+	* hdf5.pd, HDF5/Dataset.pm, t/total.t: Added capability to get
+	hyperslabs of the arrays stored in the file. (Thans to path from
+	Xavier Calbet).
+
+2007-01-29 07:05  A0182636
+
+	* hdf5.pd: Updated link to the hdf homepage.
+
 2006-03-24 14:37  tag PDL_IO_HDF5_0_5
 
 2006-03-24 14:37  cerney
