@@ -1,3 +1,29 @@
+2011-01-10 10:23  tag PDL_IO_HDF5_0_61
+
+2011-01-10 10:23  cerney
+
+	* README, hdf5.pd: Preparation for next release.
+
+2011-01-10 10:23  cerney
+
+	* Makefile.PL: Updated to work with HDF5 1.8 (using 1.6
+	compatibility interface)
+
+2011-01-09 15:48  a0182636
+
+	* varlen.h5, t/vlenString.t, HDF5/Dataset.pm: Updated to support
+	variable-length string arrays for attribute arrays.
+
+2011-01-09 09:49  a0182636
+
+	* hdf5.pd, varlen.h5, HDF5/Dataset.pm, HDF5/Group.pm,
+	t/vlenString.t: Added capability to read variable-length string
+	arrays into PDL::Char arrays.
+
+2010-12-08 08:40  cerney
+
+	* hdf5.pd: Updates to the VERSION makes it into the .pm file.
+
 2010-04-27 20:31  tag PDL_IO_HDF5_0_6
 
 2010-04-27 20:31  cerney
