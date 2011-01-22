@@ -1,3 +1,19 @@
+2011-01-22 09:25  tag PDL_IO_HDF5_0_62
+
+2011-01-22 09:25  cerney
+
+	* README, hdf5.pd: Preparation for next release
+
+2011-01-21 18:31  A0182636
+
+	* Makefile.PL: Updates for compilation on win32
+
+2011-01-21 18:24  A0182636
+
+	* hdf5.pd, HDF5/Dataset.pm: Fixed segfault problem when reading
+	variable-length strings arrays with NULL entries. Added more types
+	to the mapping arrays.
+
 2011-01-10 10:23  tag PDL_IO_HDF5_0_61
 
 2011-01-10 10:23  cerney
