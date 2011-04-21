@@ -1,3 +1,14 @@
+2011-04-21 12:01  tag PDL_IO_HDF5_0_63
+
+2011-04-21 12:01  cerney
+
+	* README, hdf5.pd: Preparation for next release.
+
+2011-04-21 11:59  cerney
+
+	* HDF5/Group.pm, t/attribPDL.t: Fixed bug where PDL attributes
+	didn't work for group-level attributes.
+
 2011-01-22 09:25  tag PDL_IO_HDF5_0_62
 
 2011-01-22 09:25  cerney
