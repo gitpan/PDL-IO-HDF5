@@ -6,29 +6,25 @@ use PDL;
 use PDL::Char;
 use PDL::IO::HDF5;
 
-print "1..5\n";  
-
-my $testNo = 1;
-
+use Test::More tests => 6;
 
 # New File Check:
-my $filename = "varlen.h5";
+my $filename = "varlen.hdf5";
 
 my $h5obj;
-ok($testNo++,$h5obj = new PDL::IO::HDF5($filename));
+ok($h5obj = new PDL::IO::HDF5(">".$filename));
 
 my $dataset = $h5obj->dataset("Dataset");
-
 
 my $pdl = $dataset->get();
 
 my @dims = $pdl->dims;
 
 #print "dims = ".join(", ", @dims)."\n";
-ok( $testNo++, join(", ", @dims) eq "93, 4");
+ok(  join(", ", @dims) eq "93, 4");
 
 #print $pdl->atstr(2)."\n";
-ok( $testNo++,   $pdl->atstr(2) eq "Now we are engaged in a great civil war,");
+ok(    $pdl->atstr(2) eq "Now we are engaged in a great civil war,");
 
 # print "PDL::Char = $pdl\n";
 
@@ -39,19 +35,11 @@ ok( $testNo++,   $pdl->atstr(2) eq "Now we are engaged in a great civil war,");
 @dims = $pdl->dims;
 
 #print "dims = ".join(", ", @dims)."\n";
-ok( $testNo++, join(", ", @dims) eq "14, 4");
+ok(  join(", ", @dims) eq "14, 4");
 
 #print $pdl->atstr(2)."\n";
-ok( $testNo++,   $pdl->atstr(2) eq "Attr String 3");
+ok(    $pdl->atstr(2) eq "Attr String 3");
 
-
-exit;
-
-
-#  Testing utility functions:
-sub ok {
-        my $no = shift ;
-        my $result = shift ;
-        print "not " unless $result ;
-        print "ok $no\n" ;
-}
+###### Now check variable-length string attribute scalar ###
+($pdl) = $dataset->attrGet('attr2');
+ok(  $pdl eq "dude");

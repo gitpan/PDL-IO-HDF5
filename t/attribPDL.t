@@ -5,14 +5,11 @@ use PDL::Types;
 
 
 # Test case for HDF5 attributes that are pdls 
-#   This is a new feature as-of version 0.6
+#   This is a new feature as-of version 0.64
 #
-print "1..9\n";  
+use Test::More tests => 13;
 
-my $testNo = 1;
-
-
-my $filename = "newFile.hd5";
+my $filename = "newFile.hdf5";
 # get rid of filename if it already exists
 unlink $filename if( -e $filename);
 
@@ -25,16 +22,20 @@ my $bt=pdl([[1.2,1.3,1.4],[1.5,1.6,1.7],[1.8,1.9,2.0]]);
 
 my $group=$hdf5->group('Radiometric information');
 
-# Store a dadtaset
+# Store a dataset
 my $dataset=$group->dataset('SP_BT');
 $dataset->set($bt);
 
 # Store a scalar and pdl attribute
 $dataset->attrSet('UNITS'=>'K');
 $dataset->attrSet('NUM_COL'=>pdl(long,[[1,2,3],[4,5,6]]));
+$dataset->attrSet('NUM_COLLONG'=>pdl(longlong,[[123456789123456784,2,3],[4,5,6]]));
 $dataset->attrSet('NUM_ROW'=>$pchar);
 $dataset->attrSet('SCALING'=>'pepe');
 $dataset->attrSet('OFFSET'=>pdl(double,[0.0074]));
+$dataset->attrSet('ID'=>pdl(long,87));
+$dataset->attrSet('IDLONG'=>pdl(longlong,123456789123456784));
+$dataset->attrSet('TEMPERATURE'=>pdl(double,3.1415927));
 
 # Set group attribute
 $group->attrSet('GroupPDLAttr'=>pdl(long,[[1,2,3],[4,5,6]]));
@@ -55,12 +56,12 @@ $expected = '
 ';
 my $bt2=$dataset2->get();
 #print "expoected = '$bt2'\n";
-ok($testNo++, "$bt2" eq $expected);
+ok("$bt2" eq $expected);
 
 $expected = 'K';
 my ($units)=$dataset2->attrGet('UNITS');
 #print "units '$units'\n";
-ok($testNo++, $units eq $expected);
+ok($units eq $expected);
 
 
 $expected = '
@@ -71,9 +72,14 @@ $expected = '
 ';
 my ($numcol)=$dataset2->attrGet('NUM_COL');
 #print "numcol '$numcol'\n";
-ok($testNo++, "$numcol" eq $expected);
+ok("$numcol" eq $expected);
 
-ok($testNo++, (ref($numcol) && $numcol->isa('PDL')) );
+ok((ref($numcol) && $numcol->isa('PDL')) );
+
+$expected = '123456789123456784                  2                  3                  4                  5                  6';
+my ($numcollong)=$dataset2->attrGet('NUM_COLLONG');
+#print "numcollong '$numcollong'\n";
+ok(sprintf("%18i %18i %18i %18i %18i %18i",$numcollong->list()) eq $expected);
 
 $expected = "[
  [ 'abc' 'def' 'ghi'  ] 
@@ -82,18 +88,36 @@ $expected = "[
 ";
 my ($numrow)=$dataset2->attrGet('NUM_ROW');
 #print "numrow '$numrow'\n";
-ok($testNo++, "$numrow" eq $expected);
+ok("$numrow" eq $expected);
 
 $expected = 'pepe';
 my ($scaling)=$dataset2->attrGet('SCALING');
 #print "scaling '$scaling\n";
-ok($testNo++, $scaling eq $expected);
+ok($scaling eq $expected);
 
 
 $expected = '[0.0074]';
 my ($offset)=$dataset2->attrGet('OFFSET');
 #print "offset '$offset'\n";
-ok($testNo++, "$offset" eq $expected);
+ok("$offset" eq $expected);
+
+
+$expected = '87';
+my ($id)=$dataset2->attrGet('ID');
+#print "id '$id'\n";
+ok("$id" eq $expected);
+
+
+$expected = '123456789123456784';
+my ($idlong)=$dataset2->attrGet('IDLONG');
+#print "idlong '$idlong'\n";
+ok("$idlong" eq $expected);
+
+
+$expected = '3.1415927';
+my ($temperature)=$dataset2->attrGet('TEMPERATURE');
+#print "temperature '$temperature'\n";
+ok("$temperature" eq $expected);
 
 
 # Check Group PDL Attribute
@@ -105,15 +129,8 @@ $expected = '
 ';
 my ($numcol2)=$group2->attrGet('GroupPDLAttr');
 #print "numcol '$numcol'\n";
-ok($testNo++, "$numcol2" eq $expected);
-ok($testNo++, (ref($numcol2) && $numcol2->isa('PDL')) );
+ok("$numcol2" eq $expected);
+ok((ref($numcol2) && $numcol2->isa('PDL')) );
 
-
-
-#  Testing utility functions:
-sub ok {
-        my $no = shift ;
-        my $result = shift ;
-        print "not " unless $result ;
-        print "ok $no\n" ;
-}
+# clean up file
+unlink $filename if( -e $filename);
