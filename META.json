@@ -41,7 +41,8 @@
    },
    "provides" : {
       "PDL::IO::HDF5" : {
-         "file" : "hdf5.pd"
+         "file" : "hdf5.pd",
+         "version" : "0.6501"
       }
    },
    "release_status" : "stable",
@@ -59,5 +60,5 @@
          "web" : "http://sourceforge.net/p/pdl/pdl-io-hdf5/ci/master/tree/"
       }
    },
-   "version" : "0.65"
+   "version" : "0.6501"
 }

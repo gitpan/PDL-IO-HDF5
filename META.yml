@@ -23,6 +23,7 @@ no_index:
 provides:
   PDL::IO::HDF5:
     file: hdf5.pd
+    version: 0.6501
 requires:
   PDL: 2.004
 resources:
@@ -30,4 +31,4 @@ resources:
   homepage: http://pdl.perl.org/
   license: http://cpansearch.perl.org/src/CHM/PDL-IO-HDF5-0.65/COPYRIGHT
   repository: git://git.code.sf.net/p/pdl/pdl-io-hdf5
-version: 0.65
+version: 0.6501
