@@ -1,3 +1,17 @@
+Release Notes for PDL-IO-HDF5 0.65 --------------------------
+
+General Notes:
+
+ * Fix missing META data information to index PDL::IO::HDF5
+   since it is provided by hdf5.pd which is not recognized
+   by CPAN indexers.
+
+Highlights:
+
+ * Identical to PDL-IO-HDF5-0.64, otherwise.
+
+
+
 Release Notes for PDL-IO-HDF5 0.64 --------------------------
 
 General Notes:

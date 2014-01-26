@@ -1,10 +1,10 @@
 {
-   "abstract" : "unknown",
+   "abstract" : "PDL Interface to the HDF5 Data Format",
    "author" : [
-      "unknown"
+      "Chris Marshall <chm@cpan.org>"
    ],
    "dynamic_config" : 1,
-   "generated_by" : "ExtUtils::MakeMaker version 6.62, CPAN::Meta::Converter version 2.133380",
+   "generated_by" : "Chris Marshall, CPAN::Meta::Converter version 2.133380",
    "license" : [
       "perl_5"
    ],
@@ -22,11 +22,14 @@
    "prereqs" : {
       "build" : {
          "requires" : {
-            "PDL" : "2.004"
+            "ExtUtils::MakeMaker" : "0",
+            "PDL" : "2.007",
+            "Test::More" : "0"
          }
       },
       "configure" : {
          "requires" : {
+            "ExtUtils::MakeMaker" : "0",
             "PDL" : "2.004"
          }
       },
@@ -36,6 +39,25 @@
          }
       }
    },
+   "provides" : {
+      "PDL::IO::HDF5" : {
+         "file" : "hdf5.pd"
+      }
+   },
    "release_status" : "stable",
-   "version" : "0.64"
+   "resources" : {
+      "bugtracker" : {
+         "web" : "http://rt.cpan.org/Public/Dist/Display.html?Name=PDL-IO-HDF5"
+      },
+      "homepage" : "http://pdl.perl.org/",
+      "license" : [
+         "http://cpansearch.perl.org/src/CHM/PDL-IO-HDF5-0.65/COPYRIGHT"
+      ],
+      "repository" : {
+         "type" : "git",
+         "url" : "git://git.code.sf.net/p/pdl/pdl-io-hdf5",
+         "web" : "http://sourceforge.net/p/pdl/pdl-io-hdf5/ci/master/tree/"
+      }
+   },
+   "version" : "0.65"
 }
